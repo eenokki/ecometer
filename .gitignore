@@ -1,2 +1,3 @@
-# Ignore files with extension `.exe`
-*.exe
+*.exe # Ignore files with extension `.exe`
+*.vs # Ignore Visual Studio files
+!pcm_measurer.exe # Allow pcm_measurer.exe to be tracked
