@@ -195,9 +195,7 @@ cmake --build build --config Release --parallel
 
 ## Final Setup
 
-Copy MSR.sys
-
-to the same directory where PCM.exe is located.
+Copy MSR.sys to the same directory where PCM.exe is located.
 
 Run PCM.exe as Administrator
 
