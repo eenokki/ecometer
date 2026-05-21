@@ -10,8 +10,6 @@ https://github.com/intel/pcm
 
 Windows installation requires several additional dependencies compared to Linux, including Visual Studio components, Windows SDK, Windows Driver Kit (WDK), and driver signing steps.
 
----
-
 ## Prerequisites
 
 Install the following software before starting:
@@ -20,8 +18,6 @@ Install the following software before starting:
 * Git
 * CMake
 * Windows Software Development Kit (SDK)
-
----
 
 ## Visual Studio Components
 
@@ -55,8 +51,6 @@ If you get errors install any additional components containing words:
 * Build Tools
 * Spectre
 
----
-
 ## Clone Intel PCM Repository
 
 Open command prompt and run:
@@ -67,8 +61,6 @@ cd pcm
 ```
 
 or manually download and extract the repository from GitHub.
-
----
 
 ## Common Spectre Error
 
@@ -100,8 +92,6 @@ Solution Explorer
     → Enabled
 ```
 
----
-
 ## Build MSR Driver
 
 Open **Developer Command Prompt for Visual Studio**
@@ -124,23 +114,13 @@ If successful, the driver file should appear at:
 src\WinMSRDriver\x64\Release\MSR.sys
 ```
 
----
-
 ## Sign the Driver
 
 Open **PowerShell as Administrator**
 
-Navigate to the folder containing:
+Navigate in PowerShell to the folder containing:
 
-```text
-MSR.sys
-```
-
-Example:
-
-```powershell
-cd C:\Users\USERNAME\pcm\src\WinMSRDriver\x64\Release
-```
+* MSR.sys
 
 Run:
 
@@ -156,35 +136,15 @@ signtool sign /fd SHA256 /f TestCert.pfx /p ([Runtime.InteropServices.Marshal]::
 
 Set a password when prompted.
 
----
-
 ## Install Certificate
 
-Double-click:
+Double-click TestCert.pfx
 
-```text
-TestCert.pfx
-```
+Install to current user
 
-Install:
+Select "Place all certificates in the following store"
 
-```text
-Current User
-```
-
-Select:
-
-```text
-Place all certificates in the following store
-```
-
-Choose:
-
-```text
-Trusted Root Certification Authorities
-```
-
----
+Choose "Trusted Root Certification Authorities"
 
 ## Enable Test Signing Mode
 
@@ -198,7 +158,6 @@ Restart the computer.
 
 This allows Windows to load test-signed drivers.
 
----
 
 ## Optional: Disable Secure Boot
 
@@ -212,14 +171,12 @@ Secure Boot
 ```
 To disable Secure Boot, you may need to set a supervisor password in the BIOS/UEFI settings and change settings on the following:
 
-CSM support
-UEFI mode
+* CSM support
+* UEFI mode
 
 Warning:
 
 Disabling Secure Boot reduces system security. Re-enable it after installation and install default keys if necessary in BIOS/UEFI settings.
-
----
 
 ## Build PCM
 
@@ -236,35 +193,15 @@ cmake -B build
 cmake --build build --config Release --parallel
 ```
 
----
-
 ## Final Setup
 
-Copy:
+Copy MSR.sys
 
-```text
-MSR.sys
-```
+to the same directory where PCM.exe is located.
 
-to the same directory where:
-
-```text
-PCM.exe
-```
-
-is located.
-
-Run:
-
-```text
-PCM.exe
-```
-
-as Administrator.
+Run PCM.exe as Administrator
 
 Intel PCM should now be installed and able to access processor performance counters and RAPL energy measurements.
-
----
 
 ## Notes
 
