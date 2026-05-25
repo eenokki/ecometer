@@ -1,0 +1,17 @@
+# Sensitive
+.env
+
+# Generated at runtime 
+data.json
+emissions.csv
+
+# Build output
+build/
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+
+# Drivers 
+*.sys
