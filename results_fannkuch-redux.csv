@@ -1,2 +1,0 @@
-Language;Benchmark;Param;PKG_J;DRAM_J;WallTime_s;ExitCode
-C;fannkuch-redux;12;595.824;0;845.246;0
