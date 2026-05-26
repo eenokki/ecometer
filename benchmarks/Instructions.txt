@@ -1,0 +1,7 @@
+If you have gcc downloaded you can just compile all 
+benchmarks with c_build.bat file in this folder
+
+Example parameters for benchmarks:
+fannkuch-redux 12
+n-body 500000000
+fasta 25000000
